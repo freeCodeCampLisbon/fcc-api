@@ -3,9 +3,9 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "https://api.freecodecamplisbon.org/.netlify/functions/:splat"
+  to = "/.netlify/functions/:splat"
   status = 200
-  force = true
+  force = false
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
