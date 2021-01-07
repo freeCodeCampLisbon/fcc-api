@@ -1,6 +1,12 @@
 [build]
   functions="functions"
-  
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/:splat"
+  status = 302
+  force = false
+
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
   for = "/*"
