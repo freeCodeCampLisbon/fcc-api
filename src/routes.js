@@ -7,5 +7,5 @@ module.exports = function (app) {
 
   router.get("/test", (req, res) => res.json("yooo"));
 
-  app.use("/api", router);
+  app.use("/.netlify/functions/api", router);
 };
