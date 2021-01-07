@@ -2,10 +2,10 @@
   functions="functions"
 
 [[redirects]]
-  from = "/*"
+  from = "/api/*"
   to = "/.netlify/functions/:splat"
-  status = 302
-  force = false
+  status = 200
+  force = true
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
