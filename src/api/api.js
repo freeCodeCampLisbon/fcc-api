@@ -11,11 +11,14 @@ app.use(parser.urlencoded({ extended: false }));
 // parse application/json
 app.use(parser.json());
 
-router.get("test", (req, res) => {
+app.get("/testa", (req, res) => {
+  res.json({ name: "manel" });
+});
+router.get("/test", (req, res) => {
   res.json("boooya");
 });
 
-app.use("/.netlify/functions/api/", router);
+app.use("/.netlify/functions/api", router);
 
 // routes(app);
 module.exports.handler = http(app);
