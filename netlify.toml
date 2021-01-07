@@ -1,7 +1,7 @@
 [build]
-  functions="src/api"
+  functions="functions/"
 [dev]
-  functions="src/api"
+  functions="functions/"
 
 [[redirects]]
   from = "/api/*"
