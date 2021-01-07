@@ -5,7 +5,7 @@ const NameController = require("./controllers/NameController");
 module.exports = function (app) {
   app.use("/.netlify/functions/api/name", NameController);
 
-  router.get("/test", (req, res) => res.json("yooo"));
+  router.get("/api/test", (req, res) => res.json("yooo"));
 
   app.use("/.netlify/functions/api", router);
 };
