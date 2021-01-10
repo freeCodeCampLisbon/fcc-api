@@ -1,22 +1,13 @@
-import Mailchimp from 'mailchimp-api-v3';
-import Constants from '../constants'
+import Mailchimp from '../plugins/mailchimp'
 
 export default {
  async index(req: any, res: any) {
-  
-  const mailchimp = new Mailchimp(`${Constants.mailchimpApiKey}`)
+
   const { email, name } = req.body
   try {
-    const results = await mailchimp.post({
-      method: 'post',
-      path: `/lists/${Constants.mailchimpDefaultListId}/members`,
-      body: {
-        merge_fields: { FNAME: name },
-        email_address: email,
-        status: 'subscribed',
-      },
-    })
-    res.json(results)
+    const results = await Mailchimp.subNewsletter(name, email)
+    console.log('results: ', results)
+    res.json({meesage: "Subscription successful, thank you for joining us"})
   
   } catch (e) {
     console.log('error: ', e)

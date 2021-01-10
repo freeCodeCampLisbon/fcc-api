@@ -1,9 +1,11 @@
+import * as dotenv from 'dotenv';
 import { APIGatewayProxyEvent, APIGatewayProxyCallback } from "aws-lambda";
 import express from "express";
 import cors  from "cors";
 import http from "serverless-http";
 import parser from "body-parser";
 import { ValidationError } from 'express-validation'
+dotenv.config();
 
 import { routes } from "../routes";
 

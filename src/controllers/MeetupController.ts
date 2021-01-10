@@ -1,18 +1,28 @@
 import faunadb from "faunadb";
 import Constants from "../constants";
+import Mailchimp from '../plugins/mailchimp'
 const client = new faunadb.Client({ secret: `${Constants.faunaDbKey}` });
 const { Create, Collection } = faunadb.query;
 export default {
   async store(req: any, res: any) {
     try {
     
-      const { email, uid, date } = req.body;
+      const { email, uid, date, sub_newsletter } = req.body;
       var meetupId = uid
-      const doc = await client.query(
+       await client.query(
         Create(Collection("meetups"), {
           data: { uid, email, date },
         })
       );
+      if(sub_newsletter) {
+        try {
+          await Mailchimp.subNewsletter('', email)
+        } catch (error) {
+            console.log('here')
+             res.json({message: 'Your seat has been reserved, thank you!. You were already subscribed to newsletter'});
+             return;
+        }
+      }
       res.json({message: 'Your seat has been reserved, thank you!'});
 
     } catch (error) {
