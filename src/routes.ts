@@ -1,11 +1,13 @@
 import express from 'express';
-import NameController from './controllers/NameController';
+import Requests from './requests'
+import {NewsletterController} from './controllers'
 
 const router = express.Router();
 
 export function routes(app: any) {
-  app.use('/api/name', NameController);
-  router.get('/test', (req, res) => res.json('yooo'));
+
+  router.post('/newsletter', Requests.NewsletterRequest, NewsletterController.index)
+  router.get('/test', (req, res) => res.json('Welcome to FCC Lx API'))
 
   app.use('/api', router);
 };
