@@ -24,6 +24,8 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-validation": "^3.0.6",
+    "mailchimp-api-v3": "^1.14.0",
     "serverless-http": "^2.6.0"
   },
   "devDependencies": {

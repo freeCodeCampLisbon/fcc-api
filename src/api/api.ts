@@ -3,6 +3,7 @@ import express from "express";
 import cors  from "cors";
 import http from "serverless-http";
 import parser from "body-parser";
+import { ValidationError } from 'express-validation'
 
 import { routes } from "../routes";
 
@@ -18,7 +19,15 @@ app.use(parser.json());
 
 routes(app);
 
+app.use(function(err: any, req: any, res: any, next: any) {
+  if (err instanceof ValidationError) {
+    return res.status(err.statusCode).json(err)
+  }
+ 
+  return res.status(500).json(err)
+})
 const _handler = http(app);
+
 
 export const handler = async function(
   event: APIGatewayProxyEvent,
