@@ -1,3 +1,3 @@
 import NewsletterController from './NewsletterController'
-
-export {NewsletterController}
+import MeetupController from './MeetupController'
+export {NewsletterController, MeetupController}
