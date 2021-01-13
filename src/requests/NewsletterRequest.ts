@@ -8,4 +8,4 @@ export default  validate({
     name: Joi.string()
       .required(),
   }),
-}, {keyByField: true}, {})
+}, {keyByField: true}, {abortEarly: false})

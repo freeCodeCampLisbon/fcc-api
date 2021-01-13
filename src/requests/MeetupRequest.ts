@@ -10,4 +10,4 @@ export default  validate({
     name: Joi.string().required(),
     sub_newsletter: Joi.bool().required()
   }),
-}, {keyByField: true}, {})
+}, {keyByField: true}, {abortEarly: false})
