@@ -25,7 +25,7 @@ export default {
 
       await client.query(
         Create(Collection("meetups"), {
-          data: { uid, email, date, name },
+          data: { uid, email, date, name, reserved_date: new Date().toISOString() },
         })
       );
       if (sub_newsletter) {
