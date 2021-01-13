@@ -6,7 +6,7 @@ const { Create, Collection, Match, Get, Index } = faunadb.query;
 export default {
   async store(req: any, res: any) {
     try {
-      const { email, uid, date, sub_newsletter } = req.body;
+      const { email, uid, date, sub_newsletter, name } = req.body;
       var meetupId = uid;
 
       // Check if user has already reserved their seat
@@ -31,7 +31,7 @@ export default {
       if (sub_newsletter) {
        
         try {
-          await Mailchimp.subNewsletter("", email);
+          await Mailchimp.subNewsletter(name, email);
         } catch (error) {
          
           res.json({

@@ -7,6 +7,7 @@ export default  validate({
       .required(),
     uid: Joi.string().required(),
     date: Joi.string().required().isoDate(),
+    name: Joi.string().required(),
     sub_newsletter: Joi.bool().required()
   }),
 }, {keyByField: true}, {})
