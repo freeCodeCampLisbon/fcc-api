@@ -25,7 +25,7 @@ export default {
 
       await client.query(
         Create(Collection("meetups"), {
-          data: { uid, email, date },
+          data: { uid, email, date, name },
         })
       );
       if (sub_newsletter) {
