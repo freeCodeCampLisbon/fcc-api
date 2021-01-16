@@ -8,6 +8,7 @@ export function routes(app: any) {
 
   router.post('/newsletter', Requests.NewsletterRequest, NewsletterController.index)
   router.post('/reserve-seat', Requests.MeetupRequest, MeetupController.store)
+  router.post('/idea', Requests.MeetupSuggestionRequest, MeetupController.submitIdea)
 
   router.get('/test', (req, res) => res.json('Welcome to FCC Lx API'))
 

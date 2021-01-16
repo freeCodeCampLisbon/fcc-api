@@ -52,4 +52,20 @@ export default {
      
     }
   },
+  async submitIdea(req: any, res: any) {
+    try {
+      const {email, name, message} = req.body;
+       await client.query(
+        Create(Collection("meetup_suggestions"), {
+          data: { email, name, message  },
+        })
+      );
+     res.json({ message: "Thank you for your submission, well get back to you after analyzing your request", type: 'success' });
+    } catch (error) {
+      res.status(500).json({
+        message: `We could not fulfill your request at the moment. If the problem persists, please contact info@freecodecamplisbon.org and submit your idea`,
+        type: 'danger'
+      });
+    }
+  }
 };
