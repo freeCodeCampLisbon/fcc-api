@@ -57,7 +57,7 @@ export default {
       const {email, name, message} = req.body;
        await client.query(
         Create(Collection("meetup_suggestions"), {
-          data: { email, name, message  },
+          data: { email, name, message, submitted: new Date().toISOString()  },
         })
       );
      res.json({ message: "Thank you for your submission, well get back to you after analyzing your request", type: 'success' });
